@@ -1,0 +1,143 @@
+.section {
+  position: relative;
+  padding-top: 30px;
+  padding-bottom: 270px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.carouselle {
+  overflow: hidden;
+  width: 100%;
+  container-type: inline-size;
+}
+
+.carouselleArticle {
+  display: flex;
+  margin-bottom: 20px;
+  width: max-content;
+  animation: bannermove 40s linear infinite;
+}
+
+.article2 {
+  animation: bannermove2 40s linear infinite;
+}
+
+.carouselleArticle.paused, .article2.paused {
+  animation-play-state: paused;
+}
+
+.carouselleTrack {
+  padding-right: 20px;
+}
+
+.carouselleList {
+  display: flex;
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  gap: 20px;
+}
+
+.carouselleItem {
+  flex: 0 0 calc(25cqi - 15px);
+  width: calc(25cqi - 15px);
+  height: 160px;
+  background: var(--white);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 40px color-mix(in srgb, var(--coffee-ink) 4%, transparent);
+  padding: 0px 40px;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+.carouselleLink {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.carouselleItem img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.carouselle:hover .carouselleArticle, 
+.carouselle:hover .article2 {
+  animation-play-state: paused;
+}
+
+.carouselle:hover .carouselleItem {
+  filter: blur(6px);
+  opacity: 0.6;
+}
+
+.carouselle .carouselleItem:hover {
+  filter: blur(0px);
+  opacity: 1;
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+@keyframes bannermove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.33333%); }
+}
+@keyframes bannermove2 {
+  0% { transform: translateX(-33.33333%); }
+  100% { transform: translateX(0); }
+}
+
+.bottomClip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 170px;
+  background: var(--white);
+  transform: rotateY(180deg);
+  clip-path: url(#bot-clip);
+  margin-bottom:-2px;
+}
+
+@media screen and (max-width: 1280px) {
+  .carouselleItem {
+    flex: 0 0 calc(33.3333cqi - 13.33px);
+    width: calc(33.3333cqi - 13.33px);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .section {
+    padding-bottom: 170px;
+  }
+  .bottomClip {
+    height: 10%;
+  }
+  .carouselleItem {
+    flex: 0 0 calc(50cqi - 10px);
+    width: calc(50cqi - 10px);
+    height: 140px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .section {
+    padding-bottom: 130px;
+  }
+  .bottomClip {
+    transform: none;
+    height: 4%;
+  }
+  .carouselleItem {
+    flex: 0 0 calc(50cqi - 10px);
+    width: calc(50cqi - 10px);
+    height: 120px;
+  }
+}

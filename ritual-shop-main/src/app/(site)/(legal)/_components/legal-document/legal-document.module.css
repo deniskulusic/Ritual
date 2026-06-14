@@ -1,0 +1,185 @@
+.productPath {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px var(--container-padding) 20px;
+}
+
+.productPath h4 {
+  margin: 0;
+  color: var(--coffee-muted);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 21px;
+  text-decoration-line: underline;
+}
+
+.productPath h4:last-of-type {
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.productPath img {
+  margin: 0 20px;
+  transform: rotate(180deg);
+}
+
+.legal {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0 30px;
+  margin-top: 15px;
+  padding: 0 var(--container-padding) 30px;
+}
+
+.legalNav {
+  grid-column: span 4;
+  margin-bottom: 70px;
+}
+
+.legalNav ul {
+  position: sticky;
+  top: 160px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.legalNav li {
+  width: max-content;
+}
+
+.legalNav button {
+  border: 0;
+  background: transparent;
+  padding: 0 15px;
+  color: var(--coffee-ink);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 59px;
+  text-align: left;
+}
+
+.legalNav .active button {
+  padding-left: 22px;
+  padding-right: 43px;
+  border-radius: 9px;
+  background: var(--coffee-brass);
+  font-weight: 700;
+}
+
+.legalData {
+  grid-column: span 8;
+}
+
+.sectionBlock {
+  padding-bottom: 70px;
+}
+
+.sectionBlock h3 {
+  margin: 0 0 30px;
+  scroll-margin-top: 210px;
+  color: var(--coffee-ink);
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 55px;
+}
+
+.sectionBlock p {
+  margin: 0 0 18px;
+  padding-right: 100px;
+  color: var(--coffee-muted);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27px;
+}
+
+.tableLiner {
+  height: 1px;
+  width: 100%;
+  margin: 20px 0;
+  background: var(--coffee-cream);
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 20px 30px;
+}
+
+.tableRow > div:first-child {
+  grid-column: span 3;
+}
+
+.tableRow > div:last-child {
+  grid-column: span 5;
+}
+
+.tableRow h4 {
+  margin: 0 0 4px;
+  color: var(--coffee-muted);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.tableRow h5 {
+  margin: 0;
+  color: var(--coffee-muted);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 1024px) {
+  .sectionBlock p {
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .tableRow > div:first-child,
+  .tableRow > div:last-child {
+    grid-column: span 8;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .legalNav {
+    display: none;
+  }
+
+  .legalData {
+    grid-column: span 12;
+  }
+
+  .tableRow > div:first-child {
+    grid-column: span 3;
+  }
+
+  .tableRow > div:last-child {
+    grid-column: span 5;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .productPath {
+    padding-top: 21px;
+    padding-bottom: 5px;
+  }
+
+  .sectionBlock p {
+    font-size: 18px;
+  }
+
+  .sectionBlock h3 {
+    font-size: 34px;
+  }
+
+  .tableRow > div:first-child,
+  .tableRow > div:last-child {
+    grid-column: span 8;
+  }
+}

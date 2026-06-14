@@ -1,0 +1,264 @@
+.register {
+  padding-right: var(--container-padding);
+  padding-bottom: 100px;
+  padding-left: var(--container-padding);
+}
+
+.register > h1 {
+  margin: 0;
+  color: var(--coffee-ink);
+  text-align: center;
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 74px;
+  font-weight: 700;
+  line-height: 84px;
+}
+
+.register > h3 {
+  margin: 0;
+  color: var(--coffee-muted);
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 20px 30px;
+  margin-top: 60px;
+}
+
+.form {
+  grid-column: span 5;
+  padding: 40px;
+  border-radius: 20px;
+  background: var(--white);
+  box-shadow: 0 8px 40px 10px color-mix(in srgb, var(--coffee-ink) 4%, transparent);
+}
+
+.form h3 {
+  margin: 0 0 20px;
+  color: var(--coffee-ink);
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 25px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 20px;
+}
+
+.form input {
+  appearance: none;
+  height: 55px;
+  margin: 0;
+  border: 1px solid var(--coffee-line);
+  border-radius: 7px;
+  background: var(--white);
+  padding: 0 20px;
+  color: var(--coffee-muted);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  outline: none;
+}
+
+.half {
+  grid-column: span 1;
+}
+
+.full {
+  grid-column: span 2;
+}
+
+.bodyText,
+.switchBlock {
+  margin: 30px 0 0;
+  color: var(--coffee-muted);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.switchBlock a,
+.bodyText a,
+.form h6 a {
+  color: var(--coffee-ink);
+  text-decoration-line: underline;
+}
+
+.formCta {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.loginRegisterButton {
+  display: flex;
+  height: 55px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 12px;
+  background: var(--coffee-green);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: opacity 0.35s ease;
+}
+
+.loginRegisterButton:hover {
+  opacity: 0.9;
+}
+
+.form h6 {
+  margin: 30px 0 0;
+  color: color-mix(in srgb, var(--coffee-muted) 70%, var(--coffee-ink));
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+.or {
+  display: flex;
+  grid-column: span 2;
+  align-items: center;
+  justify-content: center;
+  color: var(--coffee-muted);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.socialRegister {
+  display: flex;
+  grid-column: span 4;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.facebookRegister,
+.googleRegister {
+  position: relative;
+  display: flex;
+  height: 55px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.facebookRegister img,
+.googleRegister img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.facebookRegister img {
+  left: 34px;
+}
+
+.googleRegister img {
+  left: 28px;
+}
+
+.facebookRegister {
+  margin-bottom: 20px;
+  background: var(--coffee-green);
+}
+
+.googleRegister {
+  background: var(--coffee-brass);
+}
+
+@media screen and (max-width: 1280px) {
+  .or {
+    grid-column: span 1;
+  }
+
+  .socialRegister {
+    grid-column: span 5;
+  }
+
+  .form {
+    grid-column: span 6;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .or,
+  .socialRegister,
+  .form {
+    grid-column: span 12;
+  }
+
+  .register > h1,
+  .register > h3 {
+    text-align: left;
+  }
+
+  .register > h1 {
+    font-size: 56px;
+    line-height: 66px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .form {
+    padding: 30px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .register > h1 {
+    font-size: 34px;
+    line-height: 54px;
+  }
+
+  .grid {
+    margin-top: 25px;
+  }
+
+  .formGrid {
+    gap: 10px 20px;
+  }
+
+  .half {
+    grid-column: span 2;
+  }
+
+  .form input {
+    font-size: 18px;
+  }
+
+  .facebookRegister {
+    margin-top: 5px;
+  }
+
+  .facebookRegister,
+  .googleRegister {
+    width: auto;
+    padding-left: 30px;
+    font-weight: 600;
+  }
+}

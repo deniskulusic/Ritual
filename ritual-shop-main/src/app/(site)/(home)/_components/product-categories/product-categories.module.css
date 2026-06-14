@@ -1,0 +1,227 @@
+.section {
+  max-width: var(--container-frame-width);
+  margin: 0 auto;
+  padding: 30px var(--container-padding) 0px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 35px 30px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: var(--coffee-cream);
+  background-image: url("/ritual/images/ritual-pattern-bg-2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card h3 {
+  position: absolute;
+  left: 40px;
+  bottom: 38px;
+  z-index: 2;
+  margin: 0;
+  color: var(--white);
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 29px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--coffee-green);
+}
+
+.imageWrap {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+}
+
+.imageWrap img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.cat1 {
+  grid-column: span 6;
+  grid-row: span 2;
+}
+
+.cat2 {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+
+.cat3,
+.cat4,
+.cat5 {
+  grid-column: span 3;
+  height: 207px;
+}
+
+.cat6 {
+  grid-column: span 5;
+}
+
+.cat1 .imageWrap,
+.cat2 .imageWrap {
+  inset: 70px 0 0;
+  justify-content: center;
+}
+
+.cat3 .imageWrap {
+  right: 30px;
+  bottom: 18px;
+  width: 83px;
+  max-height: 180px;
+}
+
+.cat4 .imageWrap {
+  right: 20px;
+  bottom: 18px;
+  width: 83px;
+  max-height: 180px;
+}
+
+.cat5 .imageWrap {
+  right: 20px;
+  bottom: 25px;
+  width: 75px;
+  max-height: 170px;
+}
+
+.cat6 .imageWrap {
+  right: 23%;
+  bottom: 25px;
+  width: 75px;
+  max-height: 170px;
+}
+
+.exploreAll {
+  display: flex;
+  grid-column: span 4;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--coffee-cream);
+  background-color: var(--coffee-green);
+  border-radius: 15px;
+  padding: 0 40px;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 27px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: padding-left 0.35s ease, opacity 0.35s ease;
+}
+
+.exploreAll:hover {
+  padding-left:35px;
+  opacity: 0.85;
+}
+
+.exploreAll img {
+  filter: brightness(0) saturate(100%) invert(100%);
+}
+
+@media screen and (max-width: 1280px) {
+  .cat1,
+  .cat2 {
+    grid-column: span 6;
+  }
+
+  .cat3,
+  .cat4,
+  .cat5 {
+    grid-column: span 4;
+  }
+
+  .cat6,
+  .exploreAll {
+    grid-column: span 6;
+  }
+
+  .cat1 .imageWrap,
+  .cat2 .imageWrap {
+    top: auto;
+    right: 21%;
+    bottom: 25px;
+    left: auto;
+    width: 100px;
+    max-height: 190px;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .cat3,
+  .cat4,
+  .cat5 {
+    grid-column: span 6;
+  }
+
+  .cat1 .imageWrap,
+  .cat2 .imageWrap,
+  .cat3 .imageWrap,
+  .cat4 .imageWrap,
+  .cat5 .imageWrap,
+  .cat6 .imageWrap {
+    right: 30px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .grid {
+    grid-auto-rows: auto;
+    gap: 20px;
+  }
+
+  .cat1,
+  .cat2,
+  .cat3,
+  .cat4,
+  .cat5,
+  .cat6,
+  .exploreAll {
+    grid-column: span 12;
+  }
+
+  .cat1,
+  .cat2 {
+    height: 337px;
+  }
+
+  .cat3,
+  .cat4,
+  .cat5,
+  .cat6 {
+    height: 207px;
+  }
+
+  .exploreAll {
+    height: 111px;
+  }
+
+  .cat1 .imageWrap,
+  .cat2 .imageWrap {
+    inset: 20px 0 0;
+    width: 120px;
+    max-height: 230px;
+    justify-content: center;
+  }
+
+  .card h3 {
+    bottom: 40px;
+  }
+}

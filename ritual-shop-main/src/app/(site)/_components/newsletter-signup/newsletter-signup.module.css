@@ -1,0 +1,182 @@
+.section {
+  position: relative;
+  padding-top: 255px;
+  background-color: var(--coffee-cream);
+  background-image: url("/ritual/images/ritual-pattern-bg-2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.topClip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: var(--white);
+  transform: rotateY(180deg);
+  clip-path: url(#why-top);
+}
+.bottomClip{
+  width: 100%;
+  height: 1px;
+  background: var(--coffee-line);
+}
+.inner {
+  margin: 0 auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  
+}
+.innerWrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 32px;
+}
+.heading {
+  text-align: left;
+  grid-column: span 5;
+  width: 36%;
+}
+
+.formWrapper {
+  grid-column: span 7;
+  width: 50%;
+}
+
+.heading h3 {
+  margin: 0 0 10px;
+  color: color-mix(in srgb, var(--coffee-cream) 76%, var(--coffee-brass));
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 24px;
+  letter-spacing: 0.2em;
+  text-shadow: 0 1px 2px color-mix(in srgb, var(--coffee-ink) 25%, transparent);
+  text-transform: uppercase;
+}
+
+.heading h2 {
+  max-width: 610px;
+  margin: 0 0 20px;
+  color: var(--coffee-cream);
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 60px;
+  text-shadow: 0 1px 2px color-mix(in srgb, var(--coffee-ink) 25%, transparent);
+}
+
+.form {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.form input {
+  flex: 1;
+  height: 67px;
+  border: 0;
+  padding-left: 25px;
+  color: var(--coffee-muted);
+  font-size: 17px;
+  font-weight: 600;
+  outline: none;
+}
+
+.form button {
+  width: 140px;
+  border: 0;
+  background: var(--coffee-green);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.form button:hover {
+  opacity: 0.94;
+  transform: translateY(-1px);
+}
+
+.description {
+  max-width: 570px;
+  margin: 22px 0 0;
+  color: var(--coffee-line);
+  font-size: 17px;
+  line-height: 21px;
+}
+
+.description a {
+  color: var(--coffee-cream);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1112px) {
+  .section {
+    padding-top: 190px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .section {
+    padding-top: 150px;
+    padding-bottom: 132px;
+  }
+
+  .inner {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .heading {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 34px;
+  }
+
+  .heading h2 {
+    margin: 0 auto 30px;
+  }
+
+  .formWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .description {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .section {
+    padding-top: 100px;
+    padding-bottom: 102px;
+  }
+
+  .heading h2 {
+    max-width: 290px;
+    margin-bottom: 40px;
+    font-size: 34px;
+    line-height: 1.2;
+  }
+
+  .form button {
+    width: 86px;
+    font-size: 15px;
+  }
+
+  .description,
+  .form input {
+    font-size: 18px;
+  }
+}

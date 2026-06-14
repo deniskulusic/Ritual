@@ -1,0 +1,56 @@
+.grow-wrapper {
+  position: relative;
+  z-index: 1;
+}
+.sticky-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+.sticky-container .frame {
+  width: 100vw;
+  height: 100vh;
+  clip-path: circle(25% at 50% 50%);
+  will-change: clip-path;
+  position: absolute;
+  inset: 0;
+  
+}
+.sticky-container .frame .image-wrapper {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.3);
+  will-change: transform;
+  background-image: url("/ritual/images/ritual-pattern-bg-2.jpg");
+}
+.sticky-container .scroll-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.mug-image-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 70vw;
+  height: 70vh;
+  z-index: 0;
+}
+.mug-image {
+  width: 100%;
+  height: 100%;
+  background-image: url("/ritual/images/mug.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

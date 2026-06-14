@@ -1,0 +1,175 @@
+.card {
+  position: relative;
+  display: flex;
+  grid-column: span 3;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+  border-radius: 12px;
+  background: var(--coffee-cream);
+}
+
+.body {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.badge {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  padding: 9px 15px 7px 12px;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  background: var(--coffee-green);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.imageWrap {
+  display: flex;
+  height: 298px;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 39px;
+}
+
+.image {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+}
+
+.card h5 {
+  margin: 0 0 6px;
+  color: color-mix(in srgb, var(--coffee-muted) 70%, var(--coffee-ink));
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 17px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.card h3 {
+  margin: 0;
+  color: var(--coffee-ink);
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 29px;
+}
+
+.card h4 {
+  margin: 20px 0 0;
+  color: color-mix(in srgb, var(--coffee-muted) 70%, var(--coffee-ink));
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: 0.06em;
+}
+
+@media screen and (max-width: 1280px) {
+  .card {
+    padding: 25px;
+  }
+
+  .card h3 {
+    font-size: 19px;
+    line-height: 26px;
+  }
+
+  .card h4 {
+    margin-top: 15px;
+  }
+
+  .imageWrap {
+    height: 260px;
+    margin-bottom: 10px;
+  }
+
+  .image {
+    width: 80%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 1112px) {
+  .card h3 {
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  .card h5 {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+  }
+
+  .imageWrap {
+    height: 220px;
+  }
+
+  .image {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .card {
+    grid-column: span 4;
+  }
+
+  .card h3 {
+    font-size: 22px;
+    line-height: 29px;
+  }
+
+  .imageWrap {
+    height: 261px;
+  }
+
+  .image {
+    width: 82%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .card h5 {
+    margin-bottom: 3px;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+  }
+
+  .card h3 {
+    font-size: 17px;
+    line-height: 22px;
+  }
+
+  .card h4 {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .imageWrap {
+    height: 177px;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .card {
+    grid-column: span 6;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card {
+    padding: 12px;
+  }
+}

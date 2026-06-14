@@ -1,0 +1,48 @@
+.preloader-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99999;
+}
+
+.preloader-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preloader-canvas {
+  width: 30%;
+  height: 30%;
+  z-index: 1;
+  display: block;
+}
+
+.preloader-svg-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.preloader-svg {
+  height: 25%;
+  width: auto;
+  overflow: visible; /* Add this line so the background can expand */
+}

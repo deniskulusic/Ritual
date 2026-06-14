@@ -1,0 +1,98 @@
+.section {
+  padding: 100px var(--container-padding) 160px;
+}
+
+.visual {
+  position: relative;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--coffee-green) 55%, transparent);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+  padding: 70px 60px;
+}
+
+.content h3 {
+  margin: 0 0 18px;
+  color: var(--white);
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 62px;
+}
+
+.content p {
+  margin: 0 0 35px;
+  color: var(--white);
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.content a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 55px;
+  padding: 0 34px;
+  border-radius: 12px;
+  background: var(--coffee-brass);
+  color: var(--coffee-ink);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 1112px) {
+  .content h3 {
+    font-size: 40px;
+    line-height: 52px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .section {
+    padding-bottom: 140px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .section {
+    padding-bottom: 120px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .section {
+    padding: 80px var(--container-padding) 100px;
+  }
+
+  .content {
+    padding: 44px 24px;
+  }
+
+  .content h3 {
+    font-size: 34px;
+    line-height: 46px;
+  }
+
+  .content p {
+    font-size: 17px;
+    line-height: 28px;
+  }
+}

@@ -1,0 +1,30 @@
+.backTo {
+  max-width: var(--container-frame-width);
+  margin: 0 auto;
+  padding: 10px var(--container-padding) 0;
+}
+
+.backTo > div {
+  display: flex;
+  width: max-content;
+  align-items: center;
+}
+
+.backTo img {
+  margin-bottom: -3px;
+}
+
+.backTo h4 {
+  margin: 0 0 0 10px;
+  color: var(--coffee-muted);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 21px;
+  text-decoration-line: underline;
+}
+
+@media screen and (max-width: 500px) {
+  .backTo {
+    padding-top: 20px;
+  }
+}

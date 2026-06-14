@@ -1,0 +1,245 @@
+.hero {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  padding-top: 130px;
+  padding-bottom: 103px;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tint {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--coffee-ink) 38%, transparent) 0%, color-mix(in srgb, var(--coffee-ink) 12%, transparent) 54%, transparent 78%),
+    linear-gradient(180deg, color-mix(in srgb, #000 12%, transparent), color-mix(in srgb, #000 24%, transparent));
+}
+
+.inner {
+  position: relative;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  max-width: var(--container-frame-width);
+  margin: 0 auto;
+}
+
+.content {
+  padding-top: 80px;
+}
+
+.content h1 {
+  margin: 0 0 24px;
+  color: var(--white);
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 74px;
+  letter-spacing: -0.02em;
+}
+
+.content h1 br {
+  display: block;
+}
+
+.content h3 {
+  max-width: 640px;
+  margin: 0 0 8px;
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.ctaWrap {
+  margin-top: 44px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 42px;
+  border-radius: 12px;
+  background: var(--coffee-green);
+  box-shadow: 0 18px 38px color-mix(in srgb, var(--coffee-ink) 14%, transparent);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.cta:hover {
+  opacity: 0.94;
+  transform: translateY(-1px);
+}
+
+.highlightRail {
+  position: absolute;
+  left: var(--container-padding);
+  bottom: 34px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 24px;
+  pointer-events: none;
+}
+
+.highlightItem {
+  display: flex;
+  width: 104px;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.highlightItem img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(18%) sepia(20%) saturate(837%) hue-rotate(141deg) brightness(94%) contrast(91%);
+}
+
+.highlightItem span {
+  color: var(--coffee-ink);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 15px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 1650px) {
+  .content {
+    padding-top: 100px;
+  }
+
+  .content h1 {
+    font-size: 79px;
+    line-height: 83px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .content h1 {
+    font-size: 64px;
+    line-height: 66px;
+  }
+}
+
+@media screen and (max-width: 1112px) {
+  .content h1 {
+    margin-bottom: 30px;
+    font-size: 56px;
+    line-height: 58px;
+  }
+
+  .content {
+    padding-top: 60px;
+  }
+
+  .highlightItem {
+    width: 92px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .content h1 {
+    font-size: 40px;
+    line-height: 54px;
+  }
+ 
+  .content {
+    padding-top: 60px;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .hero {
+    padding-top: 100px;
+  }
+
+  .highlightRail {
+    bottom: 26px;
+    gap: 18px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .content {
+    padding-top: 40px;
+  }
+
+  .highlightRail {
+    bottom: 18px;
+    gap: 16px;
+  }
+
+  .highlightItem {
+    width: 82px;
+    gap: 8px;
+  }
+
+  .highlightItem img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .highlightItem span {
+    font-size: 11px;
+    line-height: 14px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .hero {
+    padding-bottom: 110px;
+  }
+
+  .content h1 {
+    margin-bottom: 14px;
+    padding-right: 10px;
+    font-size: 58px;
+    line-height: 59px;
+  }
+
+  .content h1 br {
+    display: none;
+  }
+
+  .ctaWrap {
+    margin-top: 23px;
+  }
+
+  .highlightRail {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 72px));
+    justify-content: start;
+    bottom: 18px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .hero {
+    padding-top: 76px;
+  }
+}

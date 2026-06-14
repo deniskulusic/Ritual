@@ -1,0 +1,91 @@
+.wrapper {
+  display: inline-flex;
+  width: max-content;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  border: 1px solid color-mix(in srgb, var(--coffee-line) 68%, white);
+  border-radius: 14px;
+  background: var(--white);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.stepper {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--coffee-cream) 75%, white);
+  color: var(--coffee-ink);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  user-select: none;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.stepper:hover:not(.disabled) {
+  background: color-mix(in srgb, var(--coffee-green) 16%, white);
+}
+
+.stepper:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--coffee-ink) 14%, transparent);
+}
+
+.value {
+  min-width: 26px;
+  margin: 0 9px;
+  padding-top: 0;
+  color: var(--coffee-ink);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+}
+
+.disabled {
+  opacity: 0.35;
+}
+
+.productWrapper {
+  min-height: 48px;
+  padding: 5px;
+  border: 1px solid color-mix(in srgb, var(--coffee-line) 68%, white);
+  border-radius: 14px;
+  background: var(--white);
+  box-shadow: none;
+  gap: 0;
+  align-items: center;
+}
+
+.productStepper {
+  width: 36px;
+  height: 36px;
+  margin-top: 0;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--coffee-cream) 75%, white);
+  color: var(--coffee-ink);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.productStepper:hover:not(.disabled) {
+  background: color-mix(in srgb, var(--coffee-green) 16%, white);
+}
+
+.productValue {
+  min-width: 26px;
+  margin: 0 9px;
+  padding-top: 0;
+  align-self: center;
+  color: var(--coffee-ink);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+}

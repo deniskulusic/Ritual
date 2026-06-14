@@ -1,0 +1,165 @@
+.section {
+  position: relative;
+  padding-top: 220px;
+  padding-bottom: 180px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.topClip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+}
+
+.leftCol {
+  grid-column: 2/span 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.description {
+  margin: 0 0 30px;
+  font-size: 17px;
+  line-height: 27px;
+  color: var(--coffee-cream);
+}
+
+.cardColWrapper {
+  grid-column: span 2;
+}
+
+.cardColInner {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.cardColFirst {
+  grid-column: 8 / span 2;
+}
+
+.cardColOffset {
+  margin-top: 60px;
+}
+
+.gridWrap {
+  max-width: var(--container-frame-width);
+  margin: 0 auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 20px 30px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 270px;
+  border-radius: 20px;
+  background: var(--white);
+  box-shadow: 0 8px 40px color-mix(in srgb, var(--coffee-ink) 4%, transparent);
+  padding: 30px 0;
+  width: 100%;
+}
+
+.card img {
+  max-width: 88px;
+  max-height: 72px;
+  width: 100%;
+  height: 100%;
+  margin: auto 0;
+}
+
+.card h4 {
+  max-width: 168px;
+  margin: 0;
+  text-align: center;
+  color: var(--coffee-ink);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 24px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 1612px) {
+  .section {
+    padding-top: 140px;
+    padding-bottom: 100px;
+  }
+}
+@media screen and (max-width: 1112px) {
+  .section {
+    padding-top: 120px;
+    padding-bottom: 100px;
+  }
+
+  .topClip {
+    height: 12%;
+  }
+
+  .card {
+    height: 210px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .section {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .topClip {
+    height: 8%;
+  }
+
+  .leftCol {
+    grid-column: span 12;
+    padding-right: 0;
+    margin-bottom: 40px;
+  }
+
+  .cardColWrapper,
+  .cardColFirst {
+    grid-column: span 6;
+  }
+
+  .cardColOffset {
+    margin-top: 0;
+  }
+
+  .card {
+    height: 210px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .section {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .cardColWrapper,
+  .cardColFirst {
+    grid-column: span 12;
+  }
+
+  .card {
+    height: 190px;
+  }
+
+  .topClip {
+    height: 5%;
+  }
+}

@@ -1,0 +1,905 @@
+.browser {
+  max-width: var(--container-frame-width);
+  margin: 0 auto;
+  padding: 8px var(--container-padding) 96px;
+}
+
+.intro {
+  width: 100%;
+}
+
+.introCopy {
+  max-width: none;
+}
+
+.toolbarBlock {
+  position: relative;
+}
+
+.introHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 56px;
+}
+
+.headerTools {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.title {
+  margin: 0 0 18px;
+  color: var(--coffee-ink);
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+}
+
+.titleMeta {
+  margin: 0;
+  color: color-mix(in srgb, var(--coffee-muted) 68%, var(--coffee-ink));
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: right;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  align-self: flex-end;
+}
+
+.description {
+  max-width: 720px;
+  margin: 18px 0 0;
+  color: color-mix(in srgb, var(--coffee-muted) 84%, var(--coffee-ink));
+  font-size: 17px;
+  line-height: 29px;
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 16px;
+  margin-top: 16px;
+}
+
+.metaCopy {
+  margin: 0;
+  color: var(--coffee-muted);
+  font-size: 16px;
+  line-height: 25px;
+}
+
+.metaCopy span {
+  color: var(--coffee-ink);
+  font-weight: 700;
+}
+
+.searchClear,
+.mobileHeaderClear {
+  border: 0;
+  background: transparent;
+  color: var(--coffee-ink);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.filtersColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.desktopFilters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+  max-width: 540px;
+}
+
+.filterTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid color-mix(in srgb, var(--coffee-brass) 68%, var(--coffee-line));
+  border-radius: 999px;
+  background: transparent;
+  color: var(--coffee-ink);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.filterTrigger:hover {
+  border-color: color-mix(in srgb, var(--coffee-green) 68%, var(--coffee-brass));
+  background: color-mix(in srgb, var(--coffee-green) 8%, var(--white));
+  color: var(--coffee-ink);
+}
+
+.filterTriggerActive {
+  border-color: color-mix(in srgb, var(--coffee-green) 82%, var(--coffee-brass));
+  background: color-mix(in srgb, var(--coffee-green) 12%, var(--white));
+}
+
+.filterTriggerOpen {
+  border-color: var(--coffee-ink);
+  background: color-mix(in srgb, var(--coffee-cream) 58%, var(--white));
+}
+
+.triggerCount,
+.mobileFiltersCount {
+  display: inline-flex;
+  min-width: 22px;
+  height: 22px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--coffee-green);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.dropdownLayer {
+  position: absolute;
+  inset: 0 auto auto 0;
+  z-index: 8;
+  pointer-events: none;
+}
+
+.dropdownPanel {
+  position: absolute;
+  width: 332px;
+  padding: 22px;
+  border: 1px solid color-mix(in srgb, var(--coffee-line) 82%, transparent);
+  border-radius: 22px;
+  background: var(--white);
+  box-shadow: 0 20px 40px color-mix(in srgb, var(--coffee-ink) 12%, transparent);
+  pointer-events: auto;
+  transform-origin: top right;
+  animation: dropdownPanelEnter 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    left 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    top 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dropdownPanelWide {
+  width: 392px;
+}
+
+.mobileSheetEyebrow {
+  color: color-mix(in srgb, var(--coffee-muted) 78%, var(--coffee-ink));
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.mobileClose {
+  border: 0;
+  background: transparent;
+  color: var(--coffee-muted);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.dropdownClose {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  border: 1px solid color-mix(in srgb, var(--coffee-line) 82%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--coffee-cream) 54%, var(--white));
+  color: color-mix(in srgb, var(--coffee-muted) 76%, var(--coffee-ink));
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.dropdownClose:hover {
+  border-color: color-mix(in srgb, var(--coffee-brass) 54%, var(--coffee-line));
+  background: color-mix(in srgb, var(--coffee-cream) 68%, var(--white));
+  color: var(--coffee-ink);
+}
+
+.dropdownBody {
+  padding-top: 0;
+}
+
+.dropdownFooter {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid color-mix(in srgb, var(--coffee-line) 82%, transparent);
+}
+
+.checkboxFilter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.optionButton {
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid color-mix(in srgb, var(--coffee-line) 82%, transparent);
+  border-radius: 999px;
+  background: transparent;
+  color: color-mix(in srgb, var(--coffee-muted) 84%, var(--coffee-ink));
+  font-size: 15px;
+  font-weight: 600;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.optionButton:hover {
+  border-color: color-mix(in srgb, var(--coffee-green) 60%, var(--coffee-line));
+  background: color-mix(in srgb, var(--coffee-green) 8%, var(--white));
+  color: var(--coffee-ink);
+}
+
+.optionButtonActive {
+  border-color: color-mix(in srgb, var(--coffee-green) 82%, var(--coffee-brass));
+  background: color-mix(in srgb, var(--coffee-green) 12%, var(--white));
+  color: var(--coffee-ink);
+}
+
+.rangeFilter {
+  display: grid;
+  gap: 18px;
+}
+
+.rangeSlider {
+  position: relative;
+  height: 28px;
+}
+
+.rangeTrack {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 6px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--coffee-line) 82%, transparent);
+  transform: translateY(-50%);
+}
+
+.rangeTrackActive {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 999px;
+  background: var(--coffee-green);
+}
+
+.rangeInput {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 28px;
+  margin: 0;
+  background: transparent;
+  pointer-events: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.rangeInput::-webkit-slider-runnable-track {
+  height: 6px;
+  background: transparent;
+}
+
+.rangeInput::-moz-range-track {
+  height: 6px;
+  background: transparent;
+}
+
+.rangeInput::-webkit-slider-thumb {
+  width: 22px;
+  height: 22px;
+  margin-top: -8px;
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  background: var(--coffee-green);
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--coffee-ink) 16%, transparent);
+  cursor: pointer;
+  pointer-events: auto;
+  -webkit-appearance: none;
+}
+
+.rangeInput::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  background: var(--coffee-green);
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--coffee-ink) 16%, transparent);
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.rangeSummary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.rangeSummaryItem {
+  padding: 16px;
+  border: 1px solid color-mix(in srgb, var(--coffee-line) 82%, transparent);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--coffee-cream) 48%, var(--white));
+}
+
+.rangeSummaryItem span {
+  display: block;
+  margin-bottom: 8px;
+  color: color-mix(in srgb, var(--coffee-muted) 78%, var(--coffee-ink));
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.rangeSummaryItem strong {
+  color: var(--coffee-ink);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.activeFiltersRow {
+  overflow: hidden;
+  height: 0;
+  margin-top: 0;
+  pointer-events: none;
+  transition: height 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.activeFiltersRowVisible {
+  margin-top: 0;
+  pointer-events: auto;
+}
+
+.activeFilters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    opacity 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.activeFiltersVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.activeChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid color-mix(in srgb, var(--coffee-line) 82%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--coffee-cream) 62%, var(--white));
+  color: var(--coffee-ink);
+  font-size: 14px;
+  font-weight: 700;
+  flex: 0 0 auto;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.activeChip:hover {
+  border-color: color-mix(in srgb, var(--coffee-green) 58%, var(--coffee-line));
+  background: color-mix(in srgb, var(--coffee-green) 8%, var(--white));
+}
+
+.activeChipLabel {
+  white-space: nowrap;
+}
+
+.activeChipClose {
+  color: var(--coffee-muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  flex: 0 0 auto;
+}
+
+.clearAllPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid color-mix(in srgb, var(--coffee-green) 72%, var(--coffee-line));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--coffee-green) 12%, var(--white));
+  color: color-mix(in srgb, var(--coffee-green) 74%, var(--coffee-ink));
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.clearAllPill:hover {
+  border-color: color-mix(in srgb, var(--coffee-green) 84%, var(--coffee-line));
+  background: color-mix(in srgb, var(--coffee-green) 16%, var(--white));
+}
+
+.grid {
+  display: grid;
+  padding-top: 24px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 30px;
+  row-gap: 30px;
+  transition: opacity 0.2s ease;
+}
+
+.gridPending {
+  opacity: 0.58;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 42px;
+}
+
+.pageList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pageButton,
+.pageControl,
+.pageEllipsis {
+  display: inline-flex;
+  min-width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--coffee-line) 82%, transparent);
+  border-radius: 999px;
+  color: var(--coffee-ink);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.pageControl {
+  min-width: 112px;
+  padding: 0 18px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.pageButtonActive {
+  border-color: color-mix(in srgb, var(--coffee-green) 82%, var(--coffee-brass));
+  background: var(--coffee-green);
+  color: var(--white);
+}
+
+.pageButton:not(.pageButtonActive):hover,
+.pageControl:not(.pageControlDisabled):hover {
+  border-color: color-mix(in srgb, var(--coffee-green) 60%, var(--coffee-line));
+  background: color-mix(in srgb, var(--coffee-green) 8%, var(--white));
+}
+
+.pageControlDisabled {
+  color: color-mix(in srgb, var(--coffee-muted) 56%, var(--white));
+  pointer-events: none;
+}
+
+.pageEllipsis {
+  min-width: 28px;
+  border-color: transparent;
+  color: var(--coffee-muted);
+}
+
+@keyframes dropdownPanelEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.emptyState {
+  grid-column: span 12;
+  padding: 42px 36px;
+  border-radius: 24px;
+  background: linear-gradient(
+    180deg,
+    var(--coffee-cream) 0%,
+    color-mix(in srgb, var(--coffee-cream) 60%, var(--white)) 100%
+  );
+}
+
+.emptyState h3 {
+  margin: 0 0 12px;
+  color: var(--coffee-ink);
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 34px;
+  line-height: 1.15;
+}
+
+.emptyState p {
+  max-width: 720px;
+  margin: 0;
+  color: var(--coffee-muted);
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.emptyStateActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.emptyStateLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 18px;
+  border: 1px solid color-mix(in srgb, var(--coffee-line) 82%, transparent);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--coffee-ink);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.mobileFiltersButton {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 18px;
+  border: 1px solid color-mix(in srgb, var(--coffee-brass) 68%, var(--coffee-line));
+  border-radius: 999px;
+  background: transparent;
+  color: var(--coffee-ink);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.mobileBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: color-mix(in srgb, var(--coffee-ink) 34%, transparent);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.mobileBackdropVisible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobileSheet {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  display: flex;
+  max-height: 88vh;
+  flex-direction: column;
+  border-radius: 28px 28px 0 0;
+  background: var(--white);
+  box-shadow: 0 -16px 44px color-mix(in srgb, var(--coffee-ink) 18%, transparent);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.mobileSheetOpen {
+  transform: translateY(0);
+}
+
+.mobileSheetHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px var(--container-padding) 20px;
+  border-bottom: 1px solid color-mix(in srgb, var(--coffee-line) 82%, transparent);
+}
+
+.mobileSheetTitle {
+  margin: 8px 0 0;
+  color: var(--coffee-ink);
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 34px;
+  line-height: 1.08;
+}
+
+.mobileSheetActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mobileGroups {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 8px var(--container-padding) 24px;
+}
+
+.mobileGroup {
+  border-bottom: 1px solid color-mix(in srgb, var(--coffee-line) 80%, transparent);
+}
+
+.mobileGroupButton {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px 0;
+  border: 0;
+  background: transparent;
+  color: var(--coffee-ink);
+  text-align: left;
+}
+
+.mobileGroupButton span {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.mobileGroupButton strong {
+  color: var(--coffee-muted);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.mobileGroupButtonOpen strong {
+  color: var(--coffee-ink);
+}
+
+.mobileGroupPanel {
+  padding: 0 0 22px;
+}
+
+.mobileFooter {
+  padding: 18px var(--container-padding) calc(18px + env(safe-area-inset-bottom));
+  border-top: 1px solid color-mix(in srgb, var(--coffee-line) 82%, transparent);
+  background: var(--white);
+}
+
+.mobileApply {
+  display: inline-flex;
+  width: 100%;
+  min-height: 56px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 16px;
+  background: var(--coffee-green);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 1280px) {
+  .title {
+    font-size: 50px;
+  }
+}
+
+@media screen and (max-width: 1112px) {
+  .title {
+    font-size: 44px;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .browser {
+    padding-top: 4px;
+    padding-bottom: 80px;
+  }
+
+  .introHeader {
+    gap: 28px;
+  }
+
+  .headerTools {
+    gap: 12px;
+  }
+
+  .title {
+    font-size: 38px;
+  }
+
+  .desktopFilters,
+  .dropdownLayer {
+    display: none;
+  }
+
+  .mobileFiltersButton {
+    display: inline-flex;
+    align-self: flex-end;
+  }
+
+  .grid {
+    padding-top: 24px;
+    row-gap: 20px;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .browser {
+    padding-top: 2px;
+    padding-bottom: 64px;
+  }
+
+  .introHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .headerTools {
+    width: 100%;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .title {
+    margin-bottom: 14px;
+    font-size: 34px;
+    line-height: 1.12;
+  }
+
+  .titleMeta {
+    margin-bottom: 0;
+    text-align: left;
+    white-space: normal;
+    align-self: flex-start;
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 27px;
+  }
+
+  .metaRow {
+    align-items: flex-start;
+  }
+
+  .metaCopy {
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .filtersColumn {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .mobileFiltersButton {
+    align-self: flex-start;
+  }
+
+  .activeChip {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .activeFiltersRowVisible {
+    margin-top: 0;
+  }
+
+  .activeFilters {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    overflow: visible;
+  }
+
+  .rangeSummary {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pagination {
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .pageList {
+    order: -1;
+    width: 100%;
+  }
+
+  .pageControl {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .mobileSheetTitle {
+    font-size: 28px;
+  }
+
+  .emptyState {
+    padding: 32px 22px;
+  }
+
+  .emptyState h3 {
+    font-size: 28px;
+  }
+}

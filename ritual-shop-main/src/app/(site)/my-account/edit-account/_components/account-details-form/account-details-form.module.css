@@ -1,0 +1,136 @@
+.personalInfo {
+  padding: 6px 34px 34px;
+  border-radius: 20px;
+  background: var(--white);
+  box-shadow: 0 8px 40px 10px color-mix(in srgb, var(--coffee-ink) 4%, transparent);
+}
+
+.dataField {
+  padding: 28px 0;
+}
+
+.dataField + .dataField {
+  border-top: 1px solid color-mix(in srgb, var(--coffee-line) 62%, white);
+}
+
+.dataFieldHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.dataFieldCopy {
+  min-width: 0;
+}
+
+.dataFieldHeader h3 {
+  margin: 0;
+  color: var(--coffee-ink);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 21px;
+}
+
+.dataFieldValue {
+  margin: 8px 0 0;
+  color: var(--coffee-muted);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.editButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  height: 44px;
+  padding: 0 20px;
+  border: 1px solid var(--coffee-line);
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--coffee-ink);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 18px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.editButton:hover {
+  background: color-mix(in srgb, var(--coffee-cream) 56%, white);
+}
+
+.editForm {
+  margin-top: 22px;
+}
+
+.editFields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.half,
+.full {
+  height: 55px;
+  padding: 0 20px;
+  border: 1px solid var(--coffee-line);
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--coffee-muted);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.saveButton {
+  display: inline-flex;
+  width: 148px;
+  height: 55px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--coffee-green);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.saveButton:hover {
+  background: color-mix(in srgb, var(--coffee-green) 92%, black);
+}
+
+.editButton:focus-visible,
+.saveButton:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--coffee-ink) 14%, transparent);
+}
+
+@media screen and (max-width: 700px) {
+  .dataFieldHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .editFields {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .personalInfo {
+    padding: 6px 24px 24px;
+  }
+}
