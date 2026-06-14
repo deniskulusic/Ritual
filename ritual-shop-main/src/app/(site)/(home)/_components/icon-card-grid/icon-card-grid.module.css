@@ -1,7 +1,7 @@
 .section {
   position: relative;
-  padding-top: 220px;
-  padding-bottom: 180px;
+  padding-top: 190px;
+  padding-bottom: 160px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -21,6 +21,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+}
+
+.leftCol > div > h2 {
+  margin-bottom: 30px;
 }
 
 .description {
@@ -95,13 +99,13 @@
 }
 @media screen and (max-width: 1612px) {
   .section {
-    padding-top: 140px;
+    padding-top: 80px;
     padding-bottom: 100px;
   }
 }
 @media screen and (max-width: 1112px) {
   .section {
-    padding-top: 120px;
+    padding-top: 60px;
     padding-bottom: 100px;
   }
 
@@ -116,7 +120,7 @@
 
 @media screen and (max-width: 800px) {
   .section {
-    padding-top: 90px;
+    padding-top: 40px;
     padding-bottom: 90px;
   }
 

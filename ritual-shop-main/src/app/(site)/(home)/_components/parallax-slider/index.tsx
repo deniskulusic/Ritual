@@ -59,17 +59,7 @@ export const ParallaxSlider: React.FC<ParallaxSliderProps> = ({
     if (!section || !frame || !content) return;
 
     let sectionTop = 0;
-    const measure = () => {
-      if (section) {
-        sectionTop = section.getBoundingClientRect().top + window.scrollY;
-      }
-    };
-    measure();
-    window.addEventListener('resize', measure, { passive: true });
-
-    // Define scroll distances
-    // The height over which the background scales up from 0.7 to 1.0
-    const growDistance = window.innerHeight * 1.2; // 120vh
+    let growDistance = window.innerHeight * 1.2; // 120vh
 
     const updateScroll = (e?: any) => {
       if (!section || !frame || !content) return;
@@ -81,10 +71,23 @@ export const ParallaxSlider: React.FC<ParallaxSliderProps> = ({
       const scrollY = currentScroll - sectionTop;
 
       // 1. Frame Clip-Path & Image Scale Logic
-      // Expand circle from 25% to 85% over the first 120vh of scrolling
       const growProgress = clamp(scrollY / growDistance, 0, 1);
-      const circleRadius = lerp(15, 75, growProgress);
-      frame.style.clipPath = `circle(${circleRadius}% at 50% 50%)`;
+      
+      // Calculate responsive radius in pixels instead of % to match the mug image scaling
+      // The mug image holder is 80vw by 80vh, and uses background-size: contain
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const mugSize = Math.min(vw * 0.8, vh * 0.8);
+      // 0.270428 is the ratio of the original 15% radius to the mug size at 1920x1080
+      const initialRadius = mugSize * 0.270428;
+      // Large enough to cover the screen
+      const maxRadius = Math.sqrt(vw * vw + vh * vh) / 2 + 100;
+      
+      const pixelRadius = lerp(initialRadius, maxRadius, growProgress);
+      frame.style.clipPath = `circle(${pixelRadius}px at 50% 50%)`;
+
+      // Calculate the old percentage-based radius to preserve the exact opacity fading logic
+      const circleRadiusPercent = lerp(15, 75, growProgress);
 
       // Scale image down from 1.3 to 1.0 to add smooth parallax feel
       if (imgRef.current) {
@@ -96,7 +99,7 @@ export const ParallaxSlider: React.FC<ParallaxSliderProps> = ({
       if (scrollY < growDistance) {
         // While growing, fade in the content
         // User wants it to start fading in when circle reaches 65% and fully visible by 75%
-        const opacityProgress = clamp((circleRadius - 35) / (70 - 35), 0, 1);
+        const opacityProgress = clamp((circleRadiusPercent - 35) / (70 - 35), 0, 1);
         content.style.opacity = opacityProgress.toString();
         content.style.pointerEvents = 'none'; // Prevent interaction while fading in
         content.style.transform = `translate3d(0, 0px, 0)`;
@@ -125,7 +128,16 @@ export const ParallaxSlider: React.FC<ParallaxSliderProps> = ({
       }
     };
 
-    updateScroll(); // initial state
+
+    const measure = () => {
+      if (section) {
+        sectionTop = section.getBoundingClientRect().top + window.scrollY;
+        growDistance = window.innerHeight * 1.2;
+        updateScroll();
+      }
+    };
+    measure(); // Initial measurement and updateScroll call
+    window.addEventListener('resize', measure, { passive: true });
 
     let lenisInterval: ReturnType<typeof setInterval>;
     const attachLenis = () => {
