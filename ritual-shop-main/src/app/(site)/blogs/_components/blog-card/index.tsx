@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import Link from "next/link";
+import { ScrollReveal } from "../../../(home)/_components/scroll-reveal";
 
 import type { BlogListItem } from "../blog-page-data";
 import styles from "./blog-card.module.css";
@@ -8,11 +9,15 @@ import styles from "./blog-card.module.css";
 type BlogCardProps = {
   post: BlogListItem;
   compact?: boolean;
+  index?: number;
 };
 
-export function BlogCard({ post, compact = false }: BlogCardProps) {
+export function BlogCard({ post, compact = false, index = 0 }: BlogCardProps) {
   return (
-    <article className={[styles.card, compact ? styles.compact : ""].filter(Boolean).join(" ")}>
+    <ScrollReveal 
+      className={[styles.card, compact ? styles.compact : ""].filter(Boolean).join(" ")}
+      yOffset={((index+1)) * 50}
+    >
       <Link href={`/blogs/${post.slug}`} className={styles.link}>
         <div className={styles.imageWrap}>
           <img src={post.image.cardSrc} alt={post.image.alt} className={styles.image} />
@@ -30,6 +35,6 @@ export function BlogCard({ post, compact = false }: BlogCardProps) {
           </div>
         </div>
       </Link>
-    </article>
+    </ScrollReveal>
   );
 }

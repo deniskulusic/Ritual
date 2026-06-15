@@ -27,28 +27,6 @@ export function ScrollAnimation({
   const metricsRef = useRef({ offsetTop: 0, height: 0 });
 
   useEffect(() => {
-    const updateMetrics = () => {
-      if (!wrapperRef.current) return;
-      const rect = wrapperRef.current.getBoundingClientRect();
-      // rect.top is relative to viewport, so we add window.scrollY
-      metricsRef.current = {
-        offsetTop: window.scrollY + rect.top,
-        height: wrapperRef.current.clientHeight,
-      };
-    };
-
-    // Calculate metrics on mount. Add a small timeout to ensure layout is settled.
-    const timer = setTimeout(updateMetrics, 100);
-
-    // Recalculate metrics on resize
-    window.addEventListener("resize", updateMetrics);
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener("resize", updateMetrics);
-    };
-  }, []);
-
-  useEffect(() => {
     const handleScroll = ({ scroll }: { scroll: number }) => {
       if (!wrapperRef.current || !elementRef.current) return;
 
@@ -86,6 +64,28 @@ export function ScrollAnimation({
       }
     };
 
+    const updateMetrics = () => {
+      if (!wrapperRef.current) return;
+      const rect = wrapperRef.current.getBoundingClientRect();
+      metricsRef.current = {
+        offsetTop: window.scrollY + rect.top,
+        height: wrapperRef.current.clientHeight,
+      };
+      
+      // Trigger a scroll update immediately after metrics change to fix initial layout snaps
+      // @ts-expect-error - Adding to window for global access
+      handleScroll({ scroll: window.__lenis?.scroll || window.scrollY });
+    };
+
+    // Calculate metrics immediately before checking Lenis
+    updateMetrics();
+
+    // Recalculate metrics on mount after layout settlement.
+    const timer = setTimeout(updateMetrics, 100);
+
+    // Recalculate metrics on resize
+    window.addEventListener("resize", updateMetrics);
+
     let lenisInstance: any = null;
     let rafId: number;
 
@@ -105,6 +105,8 @@ export function ScrollAnimation({
     checkLenis();
 
     return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", updateMetrics);
       cancelAnimationFrame(rafId);
       if (lenisInstance) {
         lenisInstance.off("scroll", handleScroll);

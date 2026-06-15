@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { NewsletterSignup } from "../_components/newsletter-signup";
+import { ScrollAnimation } from "../_components/scroll-animation";
 import { SectionHeading } from "../_components/section-heading";
 import { StoreBreadcrumbs } from "../_components/store-breadcrumbs";
 import { BlogCard } from "./_components/blog-card";
@@ -50,9 +51,14 @@ export default async function BlogsPage() {
             >
               {!reverse ? (
                 <>
-                  <div className={styles.featuredMedia}>
+                  <ScrollAnimation
+                    mode="scaleTranslate"
+                    initialScale={1.1}
+                    translateRange={150}
+                    className={styles.featuredMedia}
+                  >
                     <img src={post.image.src} alt={post.image.alt} className={styles.coverImage} />
-                  </div>
+                  </ScrollAnimation>
                   <div className={styles.featuredGap} />
                   <div className={styles.featuredCopy}>
                     <div className={styles.meta}>
@@ -82,9 +88,14 @@ export default async function BlogsPage() {
                     </Link>
                   </div>
                   <div className={styles.featuredGap} />
-                  <div className={styles.featuredMedia}>
+                  <ScrollAnimation
+                    mode="scaleTranslate"
+                    initialScale={1.1}
+                    translateRange={150}
+                    className={styles.featuredMedia}
+                  >
                     <img src={post.image.src} alt={post.image.alt} className={styles.coverImage} />
-                  </div>
+                  </ScrollAnimation>
                 </>
               )}
             </section>
@@ -105,8 +116,8 @@ export default async function BlogsPage() {
           ) : null}
         </div>
         <div className={styles.grid}>
-          {remainingPosts.map((post) => (
-            <BlogCard key={post.slug} post={post} />
+          {remainingPosts.map((post, index) => (
+            <BlogCard key={post.slug} post={post} index={index} />
           ))}
         </div>
       </section>

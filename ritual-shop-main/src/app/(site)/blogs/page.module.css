@@ -23,6 +23,11 @@
   margin: 0 auto;
   text-align: center;
 }
+.grid:hover a{
+  opacity: 0.75;
+  transform: scale(0.95);
+}
+
 
 .eyebrow {
   margin: 0 0 18px;
@@ -165,7 +170,6 @@
 
 .listIntro {
   align-items: end;
-  margin-bottom: 52px;
 }
 
 .listHeading {

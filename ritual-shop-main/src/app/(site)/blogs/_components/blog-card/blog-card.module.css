@@ -1,5 +1,6 @@
 .card {
   grid-column: span 4;
+  
 }
 
 .link {
@@ -7,6 +8,7 @@
   width: 100%;
   flex-direction: column;
   min-height: 100%;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .imageWrap {
@@ -22,10 +24,13 @@
   transition: transform 0.45s ease;
 }
 
-.card:hover .image {
-  transform: scale(1.04);
+.link:hover img {
+  transform: scale(1.05);
 }
-
+.link:hover {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
 .body {
   display: flex;
   flex: 1;
@@ -123,7 +128,16 @@
   font-size: 16px;
   line-height: 1.65;
 }
+/* Hover Effect: Dim/Scale siblings */
+.grid:hover  {
+  opacity: 0.75;
+  transform: scale(0.95);
+}
 
+.grid .card:hover {
+  opacity: 1;
+  transform: scale(1);
+}
 @media screen and (max-width: 1112px) {
   .body h3 {
     font-size: 26px;
